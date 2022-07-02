@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<cDati xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <myUser>Manu</myUser>
+  <ipDestinatario>127.0.0.1</ipDestinatario>
+  <portDestinatario>5000</portDestinatario>
+</cDati>

@@ -1,0 +1,181 @@
+﻿<Window x:Name="rootWindow" x:Class="BomberMan.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BomberMan"
+        mc:Ignorable="d"
+        Title="BomberMan v1.0" Height="501.136" Width="693.892" ResizeMode="NoResize" FontFamily="Arial" WindowStartupLocation="CenterScreen" Cursor="Cross" WindowStyle="None" Icon="Image/bomb.ico" Closing="Window_Closing" Background="{x:Null}" AllowsTransparency="True">
+    <Grid x:Name="rootGrid" MouseDown="RootGrid_MouseDown" MouseMove="RootGrid_MouseMove" MouseUp="RootGrid_MouseUp">
+        <Grid x:Name="mainGrid" Background="#FF2A2A2B" Visibility="Visible">
+            <Label HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="668" Content="BOMBERMAN" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="82" FontSize="48">
+                <Label.BitmapEffect>
+                    <DropShadowBitmapEffect Color="White" Direction="320" ShadowDepth="10" Opacity=".5" Softness="9" />
+                </Label.BitmapEffect>
+            </Label>
+
+            <Button x:Name="playTest" BorderBrush="#FF27AE60" Background="Transparent" Foreground="#FF27AE60" FontSize="36" Content="Play Test" FontWeight="Bold" Margin="10,131,388,264"  BorderThickness="4" Click="PlayTest_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="sendRequest" BorderBrush="#FF27AE60" Background="Transparent" Foreground="#FF27AE60" FontSize="36" Content="Send Request" FontWeight="Bold" Margin="388,131,10,264" BorderThickness="4" Click="SendRequest_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="mySettings" BorderBrush="#FF27AE60" Background="Transparent" Foreground="#FF27AE60" FontSize="36" Content="My Settings" FontWeight="Bold" Margin="10,250,388,144" BorderThickness="4" Click="MySettings_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="settings" BorderBrush="#FF27AE60" Background="Transparent" Foreground="#FF27AE60" FontSize="36" Content="Enemy Settings" FontWeight="Bold" Margin="388,250,10,144" BorderThickness="4" Click="Settings_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="quit" Background="{x:Null}" FontSize="36" Content="QUIT" FontWeight="Bold" Margin="203,393,203,10" BorderThickness="4" Click="Quit_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BorderBrush" Value="#FF27AE60"/>
+                        <Setter Property="Foreground" Value="#FF27AE60"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.9" />
+                                <Setter Property="BorderBrush" Value="#d35400" />
+                                <Setter Property="Foreground" Value="#d35400" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Label x:Name="username" Content="Tanzone" HorizontalAlignment="Left" Margin="541,460,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="139" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30"/>
+        </Grid>
+
+        <Grid x:Name="settingGrid" Background="#FF2A2A2B" Visibility="Hidden">
+            <Label HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="668" Content="BOMBERMAN" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="82" FontSize="48">
+                <Label.BitmapEffect>
+                    <DropShadowBitmapEffect Color="White" Direction="320" ShadowDepth="10" Opacity=".5" Softness="9" />
+                </Label.BitmapEffect>
+            </Label>
+
+            <TextBox x:Name="remoteIp" Margin="10,220,396,178" TextWrapping="NoWrap" Text="IP Address" Background="{x:Null}" BorderBrush="#d35400" Foreground="#d35400" FontSize="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="3"/>
+            <TextBox x:Name="remotePort" Margin="396,220,10,178" TextWrapping="WrapWithOverflow" Text="N° Port" Background="{x:Null}" BorderBrush="#d35400" Foreground="#d35400" FontSize="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="3"/>
+            <Label Content="Remote IP" HorizontalAlignment="Left" Margin="56,160,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+            <Label Content="Remote Port" HorizontalAlignment="Left" Margin="430,160,0,0" VerticalAlignment="Top" Foreground="White" FontSize="32"/>
+
+            <Button x:Name="back" Background="{x:Null}" FontSize="32" Content="BACK" FontWeight="Bold" Margin="10,410,396,10" BorderThickness="4" VerticalContentAlignment="Center" Click="Back_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BorderBrush" Value="#FF27AE60"/>
+                        <Setter Property="Foreground" Value="#FF27AE60"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                                <Setter Property="BorderBrush" Value="#d35400" />
+                                <Setter Property="Foreground" Value="#d35400" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="confirm" Background="{x:Null}" FontSize="32" Content="CONFIRM" FontWeight="Bold" Margin="396,410,10,10" BorderThickness="4" VerticalContentAlignment="Center" Click="Confirm_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="BorderBrush" Value="#FF27AE60"/>
+                        <Setter Property="Foreground" Value="#FF27AE60"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                                <Setter Property="Foreground" Value="#2c3e50" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Label x:Name="remoteIpNow" Content="Remote IP" HorizontalAlignment="Left" Margin="13,323,0,0" VerticalAlignment="Top" Foreground="White" FontSize="25" Width="285" HorizontalContentAlignment="Center" Height="42"/>
+            <Label x:Name="remotePortNow" Content="Remote IP" HorizontalAlignment="Left" Margin="396,323,0,0" VerticalAlignment="Top" Foreground="White" FontSize="25" Width="285" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <Grid x:Name="mySettingGrid" Background="#FF2A2A2B" Visibility="Hidden">
+            <Label HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Width="668" Content="BOMBERMAN" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="82" FontSize="48">
+                <Label.BitmapEffect>
+                    <DropShadowBitmapEffect Color="White" Direction="320" ShadowDepth="10" Opacity=".5" Softness="9" />
+                </Label.BitmapEffect>
+            </Label>
+
+            <TextBox x:Name="myUser" Margin="146,155,145,243" TextWrapping="NoWrap" Text="IP Address" Background="{x:Null}" BorderBrush="#d35400" Foreground="#d35400" FontSize="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="3"/>
+            <Label Content="Username" Margin="242,107,242,0" VerticalAlignment="Top" Foreground="White" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="My Address" Margin="38,280,362,0" VerticalAlignment="Top" Foreground="White" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="My Port" Margin="455,280,72,0" VerticalAlignment="Top" Foreground="White" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="myAddress" Content="127.999.999.999" Margin="38,331,362,0" VerticalAlignment="Top" Foreground="White" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="myPort" Content="5000" Margin="455,331,72,0" VerticalAlignment="Top" Foreground="White" FontSize="32" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Button x:Name="backMy" Background="{x:Null}" FontSize="32" Content="BACK" FontWeight="Bold" Margin="10,410,396,10" BorderThickness="4" VerticalContentAlignment="Center" Click="BackMy_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BorderBrush" Value="#FF27AE60"/>
+                        <Setter Property="Foreground" Value="#FF27AE60"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                                <Setter Property="BorderBrush" Value="#d35400" />
+                                <Setter Property="Foreground" Value="#d35400" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="confirmMy" Background="{x:Null}" FontSize="32" Content="CONFIRM" FontWeight="Bold" Margin="396,410,10,10" BorderThickness="4" VerticalContentAlignment="Center" Click="ConfirmMy_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="BorderBrush" Value="#FF27AE60"/>
+                        <Setter Property="Foreground" Value="#FF27AE60"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                                <Setter Property="Foreground" Value="#2c3e50" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Grid>
+
+</Window>
